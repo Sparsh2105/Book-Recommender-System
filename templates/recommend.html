@@ -31,22 +31,26 @@
     <div class="row">
       <div class="col-12">
         <h1 style="margin-top: 50px" class="text-white">Recommend Books</h1>
-        <form action="/recommend_books">
-        <input name="useer_input" formmethod="post" type="text" class="form-control">
+        <form action="/recommend_books" method="post">
+        <input name="user_input" formmethod="post" type="text" class="form-control">
         <input type="submit" style="margin-top: 30px; margin-bottom: 30px"  class="btn btn-lg btn-warning">
 
         </form>
 
       </div>
+      {%if data%}
+      {% for i in data %}
       <div class="col-3 mb-4">
         <div class="card bg-dark text-white h-100">
           <div class="card-body">
-            <img src="http://images.amazon.com/images/P/0439136350.01.MZZZZZZZ.jpg" class="card-img-top rounded mb-2" alt="Book Image">
-            <h3>dnidni</h3>
-            <p>di3dnd</p>
+            <img src="{{i[2]}}" class="card-img-top rounded mb-2" alt="Book Image">
+            <h3>{{i[0]}}</h3>
+            <p>{{i[1]}}</p>
           </div>
         </div>
       </div>
+      {% endfor %}
+      {% endif %}
 
 
     </div>
